@@ -1,18 +1,66 @@
-body {
+$darkPcBeige: rgb(201, 199, 175);
+$calcDisplay: rgb(155, 1, 1);
+$calcDisplayText: rgb(255, 0, 0);
+
+@mixin flexCenter {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-body div {
-    height: 500px;
-    width: 500px;
-    background-color: aquamarine;
-
-    p {
-        color: aliceblue;
-        font-size: 150px;
-        background-color: rgba(255, 192, 3, 0.619);
-    }
-
+body {
+    @include flexCenter();
+    height: 100vh;
 }
+
+.calc-container {
+    height: 650px;
+    width: 500px;
+    background-color: $darkPcBeige;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .calc-display {
+        @include flexCenter();
+        height: 100px;
+        width: 400px;
+        background-color: $calcDisplay;
+        margin-top: 20px;
+        font-family: 'Segment7Standard';
+        font-size: 50px;
+        color: $calcDisplayText;
+    }
+    
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+
+        background-color: aquamarine;
+        height: 450px;
+        width: 400px;
+
+        .grid-button {
+            color: #fff;
+            position: relative;
+            display: grid;
+            width: 80px;
+            place-items: center;
+            margin: 8px;
+            height: 80px;
+            background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+            box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+              inset 0 -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75),
+              10px 20px 25px rgba(0, 0, 0, 0.4);
+            user-select: none;
+            cursor: pointer;
+            font-weight: 400;
+            border-radius: 10px;
+        }
+
+    }
+}
+
