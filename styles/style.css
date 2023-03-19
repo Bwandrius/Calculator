@@ -33,11 +33,23 @@ body {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }
+.calc-container .calc-inscription {
+  background-color: rgb(72, 91, 99);
+  color: gold;
+  width: 400px;
+  font-family: "Great Vibes", cursive;
+  font-size: 24px;
+}
+.calc-container .calc-inscription p {
+  padding-left: 10px;
+  padding-top: 5px;
+}
 .calc-container .button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  padding-top: 3rem;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   margin-bottom: 1.5rem;
   background-color: rgb(72, 91, 99);
   width: 400px;
