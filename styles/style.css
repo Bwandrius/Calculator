@@ -8,7 +8,7 @@ body {
 .calc-container {
   width: 420px;
   padding-top: 30px;
-  border-radius: 10px;
+  border-radius: 6px;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
   background-color: rgb(227, 225, 201);
