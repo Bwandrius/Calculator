@@ -1,11 +1,11 @@
-const numberButtons = document.querySelectorAll('[data-number]');
-const operationsButtons = document.querySelectorAll('[data-operation]');
-const clearAllButton = document.querySelector('.button-ce');
-const deleteButton = document.querySelector('[data-delete]');
-const equalsButton = document.querySelector('[data-equals]');
+const numberButtons = document.querySelectorAll('.num-button');
+const operationsButtons = document.querySelectorAll('.operation-button');
+const clearAllButton = document.querySelector('#gb-ce');
+const deleteButton = document.querySelector('#gb-c');
+const equalsButton = document.querySelector('#gb-equals');
 
 const allCalcButtons = document.querySelectorAll('button');
-console.log(clearAllButton);
+console.log(operationsButtons);
 
 
 function changeBackground(button) {
