@@ -14,6 +14,19 @@ $textColor: rgb(72, 91, 99);
 body {
     @include flexCenter();
     height: 100vh;
+
+    .footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+    }
 }
 
 .calc-container {
