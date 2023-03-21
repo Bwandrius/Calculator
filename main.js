@@ -47,9 +47,19 @@ clearAllButton.addEventListener("click", function(){
 })
 
 equalsButton.addEventListener("click", function(){
-  calculate();
-  lastScreen.textContent = '';
-  currentScreen.textContent = previousValue;
+  if(currentValue != '' && previousValue != ''){
+    calculate();
+    lastScreen.textContent = '';
+    if(previousValue.length <= 5){
+      currentScreen.textContent = previousValue;
+    } else {
+      currentScreen.textContent = previousValue.slice(0, 5) + "...";
+    }
+  }
+})
+
+decimalButton.addEventListener("click", function(){
+  addDecimal();
 })
 
 function handleNumber(num){
@@ -63,13 +73,6 @@ function handleOperator(opr){
   previousValue = currentValue;
   currentValue = '';
 }
-
-// function handleOperator(opr){
-//   operator = opr;
-//   lastScreen.textContent = previousValue + " " + operator;  // Update lastScreen element
-//   previousValue = currentValue;
-//   currentValue = '';
-// }
 
 function calculate(){
   previousValue = Number(previousValue);
@@ -95,3 +98,8 @@ function roundNumber(num){
   return Math.round(num * 1000) / 1000;
 }
 
+function addDecimal(){
+  if(!currentValue.includes(".")){
+    currentValue += ".";
+  }
+}
