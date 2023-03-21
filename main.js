@@ -38,12 +38,16 @@ operationsButtons.forEach((opr) => opr.addEventListener("click", function(e){
   currentScreen.textContent = currentValue;
 }));
 
-clearAllButton.addEventListener("click", function(e){
+clearAllButton.addEventListener("click", function(){
   previousValue = '';
   currentValue = '';
   operator = '';
   lastScreen.textContent = '';
   currentScreen.textContent = '';
+})
+
+equalsButton.addEventListener("click", function(){
+  calculate();
 })
 
 function handleNumber(num){
@@ -58,4 +62,26 @@ function handleOperator(opr){
   currentValue = '';
 }
 
+function calculate(){
+  previousValue = Number(previousValue);
+  currentValue = Number(currentValue);
+
+  if(operator === "+"){
+    previousValue += currentValue;
+  } else if (operator === "-") {
+    previousValue -= currentValue;
+  } else if (operator === "x") {
+    previousValue *= currentValue;
+  } else  {
+    previousValue /= currentValue;
+  }
+  
+  previousValue = roundNumber(previousValue);
+  previousValue = previousValue.toString();
+  currentValue = currentValue.toString();
+} 
+
+function roundNumber(num){
+  return Math.round(num * 1000) / 1000;
+}
 
