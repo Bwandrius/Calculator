@@ -28,14 +28,26 @@ function changeBackground(event) {
 buttonContainer.addEventListener('click', changeBackground);
 
 numberButtons.forEach((number) => number.addEventListener("click", function(e){
-  handleNumber(e.target.value)
-  currentScreen.textContent = currentValue
+  handleNumber(e.target.value);
+  currentScreen.textContent = currentValue;
 }));
 
 function handleNumber(num){
   if (currentValue.length <= 5) {
     currentValue += num;
   }
+}
+
+operationsButtons.forEach((opr) => opr.addEventListener("click", function(e){
+  handleOperator(e.target.value);
+  lastScreen.textContent = previousValue + " " + operator; 
+  currentScreen.textContent = currentValue;
+}));
+
+function handleOperator(opr){
+  operator = opr;
+  previousValue = currentValue;
+  currentValue = '';
 }
 
 
