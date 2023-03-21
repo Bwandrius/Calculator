@@ -48,6 +48,8 @@ clearAllButton.addEventListener("click", function(){
 
 equalsButton.addEventListener("click", function(){
   calculate();
+  lastScreen.textContent = '';
+  currentScreen.textContent = previousValue;
 })
 
 function handleNumber(num){
@@ -62,6 +64,13 @@ function handleOperator(opr){
   currentValue = '';
 }
 
+// function handleOperator(opr){
+//   operator = opr;
+//   lastScreen.textContent = previousValue + " " + operator;  // Update lastScreen element
+//   previousValue = currentValue;
+//   currentValue = '';
+// }
+
 function calculate(){
   previousValue = Number(previousValue);
   currentValue = Number(currentValue);
@@ -75,10 +84,11 @@ function calculate(){
   } else  {
     previousValue /= currentValue;
   }
-  
+
   previousValue = roundNumber(previousValue);
   previousValue = previousValue.toString();
   currentValue = currentValue.toString();
+  currentValue = previousValue;
 } 
 
 function roundNumber(num){
