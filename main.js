@@ -5,7 +5,6 @@ let currentValue = '';
 const numberButtons = document.querySelectorAll('.num-button');
 const operationsButtons = document.querySelectorAll('.operation-button');
 const clearAllButton = document.querySelector('#gb-ce');
-const deleteButton = document.querySelector('#gb-c');
 const decimalButton = document.querySelector('#gb-decimal');
 const equalsButton = document.querySelector('#gb-equals');
 
@@ -50,21 +49,23 @@ equalsButton.addEventListener("click", function(){
   if(currentValue != '' && previousValue != ''){
     calculate();
     lastScreen.textContent = '';
-    if(previousValue.length <= 5){
+    if(previousValue.length <= 7){
       currentScreen.textContent = previousValue;
     } else {
-      currentScreen.textContent = previousValue.slice(0, 5) + "...";
+      currentScreen.textContent = previousValue.slice(0, 7) + "...";
     }
   }
 })
 
-decimalButton.addEventListener("click", function(){
-  addDecimal();
-})
+decimalButton.addEventListener("click", addDecimal);
 
 function handleNumber(num){
-  if (currentValue.length <= 5) {
-    currentValue += num;
+  if (currentValue.length < 7) {
+    if (currentValue === '0') {
+      currentValue = num;
+    } else {
+      currentValue += num;
+    }
   }
 }
 
